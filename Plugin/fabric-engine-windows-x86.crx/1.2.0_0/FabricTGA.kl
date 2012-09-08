@@ -1,0 +1,25 @@
+/*
+ *  Copyright 2010-2012 Fabric Engine Inc. All rights reserved.
+ */
+
+struct RGBA {
+  Byte r;
+  Byte g;
+  Byte b;
+  Byte a;
+};
+
+function FabricTGADecode(
+  Data tgaData,
+  Size tgaDataSize,
+  io Size imageWidth,
+  io Size imageHeight,
+  io RGBA imagePixels[]
+  ) = "FabricTGADecode";
+  
+function FabricTGAOpenFileHandle(
+  String handle,
+  io Size imageWidth,
+  io Size imageHeight,
+  io RGBA imagePixels[]
+  ) = "FabricTGAOpenFileHandle";

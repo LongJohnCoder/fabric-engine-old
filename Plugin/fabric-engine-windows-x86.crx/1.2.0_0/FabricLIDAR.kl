@@ -1,0 +1,56 @@
+/*
+ *  Copyright 2010-2012 Fabric Engine Inc. All rights reserved.
+ */
+
+struct Vec3 {
+  Scalar x;
+  Scalar y;
+  Scalar z;
+};
+
+struct Color {
+  Scalar r;
+  Scalar g;
+  Scalar b;
+  Scalar a;
+};
+
+struct LidarReader {
+  Data pointer;
+  String url;
+  Boolean compressed;
+};
+
+function FabricLIDAR_Reader_Decode( Data resourceData, Size resourceDataSize, io LidarReader lidar ) = "FabricLIDAR_Reader_Decode";
+function FabricLIDAR_Reader_OpenFileHandle( String handle, io LidarReader lidar ) = "FabricLIDAR_Reader_OpenFileHandle";
+function FabricLIDAR_Reader_Free( io LidarReader lidar ) = "FabricLIDAR_Reader_Free";
+function FabricLIDAR_Reader_GetCount( io LidarReader lidar, io Size count ) = "FabricLIDAR_Reader_GetCount";
+function FabricLIDAR_Reader_GetPoints( io LidarReader lidar, io Vec3 positions<>, io Color colors<> ) = "FabricLIDAR_Reader_GetPoints";
+
+function ~LidarReader() = "FabricLIDAR_Reader_Free";
+
+function LidarReader.loadResource(io FabricResource resource, io String url) {
+  if(this.pointer)
+    return;
+  if(resource.data.dataSize() == 0)
+    return;
+  this.url = url;
+  FabricLIDAR_Reader_Decode(resource.data.data(), resource.data.dataSize(), this);
+}
+
+function LidarReader.loadFileHandle(in String handle) {
+  this.url = handle;
+  FabricLIDAR_Reader_OpenFileHandle(handle, this);
+}
+
+function LidarReader.getCount(io Size count) {
+  if(!this.pointer)
+    return;
+  FabricLIDAR_Reader_GetCount(this, count);
+}
+
+function LidarReader.getPoints(io Vec3 positions<>, io Color colors<>) {
+  if(!this.pointer)
+    return;
+  FabricLIDAR_Reader_GetPoints(this, positions, colors);
+}

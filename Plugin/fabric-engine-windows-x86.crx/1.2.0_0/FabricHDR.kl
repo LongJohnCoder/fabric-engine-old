@@ -1,0 +1,13 @@
+/*
+ *  Copyright 2010-2012 Fabric Engine Inc. All rights reserved.
+ */
+
+struct Color {
+  Scalar r;
+  Scalar g;
+  Scalar b;
+  Scalar a;
+};
+
+function FabricHDRDecode( Data hdrData, Size hdrDataSize, io Size imageWidth, io Size imageHeight, io Color imagePixels[] ) = "FabricHDRDecode";
+function FabricHDROpenFileHandle( String handle, io Size imageWidth, io Size imageHeight, io Color imagePixels[] ) = "FabricHDROpenFileHandle";

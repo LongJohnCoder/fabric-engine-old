@@ -1,0 +1,18 @@
+/*
+ *  Copyright 2010-2012 Fabric Engine Inc. All rights reserved.
+ */
+
+struct Color {
+  Scalar r;
+  Scalar g;
+  Scalar b;
+  Scalar a;
+};
+
+function FabricEXRDecode( Data exrData, Size exrDataSize, io Size imageWidth, io Size imageHeight, io Color imagePixels[] ) = "FabricEXRDecode";
+function FabricEXROpenFileHandle(
+  String handle,
+  io Size imageWidth,
+  io Size imageHeight,
+  io Color imagePixels[]
+  ) = "FabricEXROpenFileHandle";

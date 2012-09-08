@@ -1,0 +1,20 @@
+/*
+ *  Copyright 2010-2012 Fabric Engine Inc. All rights reserved.
+ */
+
+struct RGBA {
+  Byte r;
+  Byte g;
+  Byte b;
+  Byte a;
+};
+
+function FabricPNGDecode( Data pngData, Size pngDataSize, io Size imageWidth, io Size imageHeight, io RGBA imagePixels[] ) = "FabricPNGDecode";
+function FabricPNGEncode( Size imageWidth, Size imageHeight, Data imagePixels, io Byte pngData[] ) = "FabricPNGEncode";
+
+function FabricPNGOpenFileHandle(
+  String handle,
+  io Size imageWidth,
+  io Size imageHeight,
+  io RGBA imagePixels[]
+  ) = "FabricPNGOpenFileHandle";

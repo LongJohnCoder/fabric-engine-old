@@ -1,0 +1,17 @@
+{
+   "description": "High Performance Computing for the Web",
+   "homepage_url": "http://fabricengine.com",
+   "icons": {
+      "128": "fabric-engine_128.png",
+      "16": "fabric-engine_16.png",
+      "48": "fabric-engine_48.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDD8owPd6Hffh98U+5JpGB+dDfPGDitRPVwh44QXr2jslf4tnpQCUtrOykhwFlb1AqwgYIiQiiAN9LrXIr2zfapaW4gYmXujkF+m3sDlWk6Oj9XStWmNKF1rcBZMzMbszxw+d9dUm0JwBb31oKicrHBlujBffKubbCkNxvdissDcQIDAQAB",
+   "name": "Fabric Engine",
+   "plugins": [ {
+      "path": "npFabricPlugin.dll",
+      "public": true
+   } ],
+   "update_url": "http://dist.fabric-engine.com/latest/crx-update-Windows-x86.xml",
+   "version": "1.2.0"
+}

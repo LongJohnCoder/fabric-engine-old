@@ -1,0 +1,50 @@
+/*
+ *  Copyright 2010-2012 Fabric Engine Inc. All rights reserved.
+ */
+
+struct RGB {
+  Byte r; Byte g; Byte b;
+};
+
+struct VideoHandle {
+  Data pointer;
+  Size width;
+  Size height;
+  Scalar duration;
+  Scalar fps;
+  Scalar time;
+};
+
+function FabricVIDEOOpenResource(
+  Data resourceData,
+  Size resourceDataSize,
+  io VideoHandle handle
+) = "FabricVIDEOOpenResource";
+
+function FabricVIDEOOpenFileHandle(
+  String fileHandle,
+  io VideoHandle handle
+) = "FabricVIDEOOpenFileHandle";
+
+function FabricVIDEOCreateFromFileHandle(
+  String file,
+  Size width,
+  Size height,
+  io VideoHandle handle,
+) = "FabricVIDEOCreateFromFileHandle";
+
+function FabricVIDEOFreeHandle( io VideoHandle handle ) = "FabricVIDEOFreeHandle";
+  
+function FabricVIDEOSeekTime( io VideoHandle handle, io Scalar time) = "FabricVIDEOSeekTime";
+
+function FabricVIDEOGetAllPixels(
+  io VideoHandle handle,
+  io RGB pixels[]
+) = "FabricVIDEOGetAllPixels";
+
+function FabricVIDEOWriteAllPixels(
+  io VideoHandle handle,
+  io RGB pixels[]
+) = "FabricVIDEOWriteAllPixels";
+
+function ~VideoHandle() = "FabricVIDEOFreeHandle";
